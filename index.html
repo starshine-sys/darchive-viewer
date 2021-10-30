@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#{{.Channel.Name}}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+</head>
+<body class="text-white bg-lightGray">
+    <div class="bg-darkGray md:px-4">
+        <div class="bg-darkGray p-6 flex items-center">
+            <div class="p-2">
+                <div class="text-xl font-medium">#{{.Channel.Name}}</div>
+                <p class="font-light">ID: {{.Channel.ID}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="bg-lightGray md:px-4">
+        {{.Content}}
+    </div>
+    <div class="bg-darkGray md:px-4">
+        <p class="p-4">{{.MsgCount}} messages &middot; Channel ID: {{.Channel.ID}}</p>
+    </div>
+
+    <style>
+        {{.CSS}}
+        {{.HighlightCSS}}
+    </style>
+    <script>
+        {{.HighlightJS}}
+        hljs.highlightAll();
+        twemoji.parse(document.body);
+    </script>
+</body>
+</html>
