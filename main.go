@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -23,6 +24,12 @@ func main() {
 	r.Use(middleware.Recoverer)
 
 	r.Get(`/{channelID:\d+}/{attachmentID:\d+}/{attachment}`, serve)
+	r.Get(`/`, func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, `I can't be bothered to write some HTML for this so:
+Just copy-paste the Discord attachment link, but replace https://cdn.discordapp.com/attachments/ in the link with this website.
+
+Source: https://github.com/starshine-sys/darchive-viewer`)
+	})
 
 	port = strings.TrimPrefix(port, ":")
 
