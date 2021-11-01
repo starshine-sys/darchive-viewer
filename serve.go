@@ -180,8 +180,8 @@ func embedToArikawa(e *discordgo.MessageEmbed) discord.Embed {
 		de.Image = &discord.EmbedImage{
 			URL:    e.Image.URL,
 			Proxy:  e.Image.ProxyURL,
-			Height: uint(e.Thumbnail.Height),
-			Width:  uint(e.Thumbnail.Width),
+			Height: uint(e.Image.Height),
+			Width:  uint(e.Image.Width),
 		}
 	}
 
@@ -197,8 +197,8 @@ func embedToArikawa(e *discordgo.MessageEmbed) discord.Embed {
 	if e.Video != nil {
 		de.Video = &discord.EmbedVideo{
 			URL:    e.Video.URL,
-			Height: uint(e.Thumbnail.Height),
-			Width:  uint(e.Thumbnail.Width),
+			Height: uint(e.Video.Height),
+			Width:  uint(e.Video.Width),
 		}
 	}
 
